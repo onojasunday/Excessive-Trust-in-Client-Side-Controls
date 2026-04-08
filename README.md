@@ -22,6 +22,7 @@ o	quantity: 3
 o	price: 133700 (in cents)
 
 ![Description of the image](./Modified Price.jpg)
+
 Phase 3: Exploitation
 1.	In Burp Suite, I sent the /cart POST request to the Repeater.
 2.	I modified the price parameter value from 133700 to 1.
