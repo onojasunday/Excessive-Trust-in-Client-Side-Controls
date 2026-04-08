@@ -18,17 +18,18 @@ Phase 2: Interception
 •	Action: Added the jacket to the cart while running Burp Suite Proxy.
 •	Analysis: I examined the POST request sent to /cart. The request body contained several parameters:
 o	productId: 1
-o	quantity: 1
+o	quantity: 3
 o	price: 133700 (in cents)
+
+![Description of the image](./Modified Price.jpg)
 Phase 3: Exploitation
 1.	In Burp Suite, I sent the /cart POST request to the Repeater.
 2.	I modified the price parameter value from 133700 to 1.
 3.	I forwarded the modified request to the server.
 4.	The server accepted the request and added the item to the cart with the forged price.
-   ![Description of the image](./name-of-your-image.png)
 Phase 4: Verification
 •	Action: Navigated to the cart page and clicked "Place Order."
-•	Result: The order was processed successfully. The system confirmed the purchase of the $1,337 jacket for a total of $0.01.
+•	Result: The order was processed successfully. The system confirmed the purchase of the $1,337 jacket for a total of $0.03.
 ________________________________________
 4. Root Cause Analysis
 The application follows a dangerous "trust-by-default" pattern. It retrieves the price from a hidden field or a JavaScript variable in the browser and sends it to the server. The server then uses this client-provided price to calculate the final total instead of querying its own authoritative database for the correct price of productId: 1.
