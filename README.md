@@ -25,6 +25,7 @@ Phase 3: Exploitation
 2.	I modified the price parameter value from 133700 to 1.
 3.	I forwarded the modified request to the server.
 4.	The server accepted the request and added the item to the cart with the forged price.
+   ![Description of the image](./name-of-your-image.png)
 Phase 4: Verification
 •	Action: Navigated to the cart page and clicked "Place Order."
 •	Result: The order was processed successfully. The system confirmed the purchase of the $1,337 jacket for a total of $0.01.
